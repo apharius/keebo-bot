@@ -1,0 +1,11 @@
+{
+	"name": "rehnmans-bot",
+	"version": "1.0.0",
+	"description": "Rehnmans bot för alla roligheter och fuktiga mejmejs",
+	"main": "bot.js",
+	"author": "Alexander Rehnman",
+	"dependencies": {
+		"discord.io": "github:woor/discord.io#gateway_v6",
+		"winston": "^2.4.0"
+	}
+}
