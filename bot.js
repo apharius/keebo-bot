@@ -1,6 +1,7 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
+var fs = require('fs');
 
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
@@ -8,6 +9,8 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 
+var text = fs.readFileSync('pictures/dong/dong_list.txt', 'utf-8');
+var donglist = text.split('\n');
 var bot = new Discord.Client({token: auth.token,
 	autorun: true});
 bot.on('ready', function(){
@@ -74,11 +77,14 @@ bot.on('message', function(user, userId, channelID, message, evt){
 				break;
 			
 			case 'dong':
+				var dongIndex = Math.floor((Math.random() * donglist.length) +1);	
+				var chosenDong = donglist[dongIndex]
+				logger.info(chosenDong);
 				bot.uploadFile({
 					to: channelID,
-					file:'featurelength.jpg'
+					file: 'pictures/dong/'+ chosenDong
 				});
-				logger.info('Feature Length begärd av ' + user);
+				logger.info('Dong begärd av ' + user);
 
 				break;
 			
