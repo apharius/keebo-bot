@@ -34,7 +34,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'tisdag':
 				bot.uploadFile({
 					to: channelID,
-					file:'tisdag.png'
+					file:'pictures/days/tisdag.png'
 				});
 				logger.info('Tisdag begärd av ' + user);
 				break;
@@ -42,7 +42,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'onsdag':
 				bot.uploadFile({
 					to: channelID,
-					file:'onsdag.jpg'
+					file:'pictures/days/onsdag.jpg'
 				});
 				
 				logger.info('Onsdag begärd av ' + user);
@@ -50,7 +50,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'torsdag':
 				bot.uploadFile({
 					to: channelID,
-					file:'kuken.jpg'
+					file:'pictures/days/torsdag.jpg'
 				});
 				
 				logger.info('Torsdag begärd av ' + user);
@@ -58,7 +58,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'fredag':
 				bot.uploadFile({
 					to: channelID,
-					file:'fredag.jpg'
+					file:'pictures/days/fredag.jpg'
 				});
 				logger.info('Fredag begärd av ' + user);
 
@@ -67,13 +67,13 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'badsalt':
 				bot.uploadFile({
 					to: channelID,
-					file:'badsalt.png'
+					file:'pictures/others/badsalt.png'
 				});
 				logger.info('Badsalt begärd av ' + user);
 
 				break;
 			
-			case 'featurelength':
+			case 'dong':
 				bot.uploadFile({
 					to: channelID,
 					file:'featurelength.jpg'
