@@ -1,6 +1,7 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
+var fs = require('fs');
 
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
@@ -8,6 +9,8 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 
+var text = fs.readFileSync('pictures/dong/dong_list.txt', 'utf-8');
+var donglist = text.split('\n');
 var bot = new Discord.Client({token: auth.token,
 	autorun: true});
 bot.on('ready', function(){
@@ -34,7 +37,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'tisdag':
 				bot.uploadFile({
 					to: channelID,
-					file:'tisdag.png'
+					file:'pictures/days/tisdag.png'
 				});
 				logger.info('Tisdag begärd av ' + user);
 				break;
@@ -42,7 +45,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'onsdag':
 				bot.uploadFile({
 					to: channelID,
-					file:'onsdag.jpg'
+					file:'pictures/days/onsdag.jpg'
 				});
 				
 				logger.info('Onsdag begärd av ' + user);
@@ -50,7 +53,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'torsdag':
 				bot.uploadFile({
 					to: channelID,
-					file:'kuken.jpg'
+					file:'pictures/days/torsdag.jpg'
 				});
 				
 				logger.info('Torsdag begärd av ' + user);
@@ -58,7 +61,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'fredag':
 				bot.uploadFile({
 					to: channelID,
-					file:'fredag.jpg'
+					file:'pictures/days/fredag.jpg'
 				});
 				logger.info('Fredag begärd av ' + user);
 
@@ -67,18 +70,21 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'badsalt':
 				bot.uploadFile({
 					to: channelID,
-					file:'badsalt.png'
+					file:'pictures/others/badsalt.png'
 				});
 				logger.info('Badsalt begärd av ' + user);
 
 				break;
 			
-			case 'featurelength':
+			case 'dong':
+				var dongIndex = Math.floor((Math.random() * donglist.length) +1);	
+				var chosenDong = donglist[dongIndex]
+				logger.info(chosenDong);
 				bot.uploadFile({
 					to: channelID,
-					file:'featurelength.jpg'
+					file: 'pictures/dong/'+ chosenDong
 				});
-				logger.info('Feature Length begärd av ' + user);
+				logger.info('Dong begärd av ' + user);
 
 				break;
 			
