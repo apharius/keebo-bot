@@ -59,3 +59,6 @@ typings/
 
 # secret bot info
 auth.json
+
+#no need to version control auto-generated files
+pictures/dong/dong_list.txt
