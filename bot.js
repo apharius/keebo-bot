@@ -9,8 +9,12 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 
-var text = fs.readFileSync('pictures/dong/dong_list.txt', 'utf-8');
-var donglist = text.split('\n');
+var dongtext = fs.readFileSync('pictures/dong/dong_list.txt', 'utf-8');
+var donglist = dongtext.split('\n');
+
+var poketext = fs.readFileSync('pictures/pokegif/pokegif_list.txt','utf-8');
+var pokelist = poketext.split('\n');
+
 var bot = new Discord.Client({token: auth.token,
 	autorun: true});
 bot.on('ready', function(){
@@ -77,7 +81,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 				break;
 			
 			case 'dong':
-				var dongIndex = Math.floor((Math.random() * donglist.length) +1);	
+				var dongIndex = Math.floor((Math.random() * donglist.length));	
 				var chosenDong = donglist[dongIndex]
 				logger.info(chosenDong);
 				bot.uploadFile({
@@ -87,7 +91,17 @@ bot.on('message', function(user, userId, channelID, message, evt){
 				logger.info('Dong begärd av ' + user);
 
 				break;
-			
+			case 'pokegif':
+				var pokeGifIndex = Math.floor((Math.random()*pokelist.length));
+				var chosenPokeGif = pokelist[pokeGifIndex];
+				logger.info(chosenPokeGif);
+
+				bot.uploadFile({
+					to: channelID,
+					file: 'pictures/pokegif/'+ chosenPokeGif
+				});
+				logger.info('Pokémongif begärd av ' + user);
+				break;
 
 		}
 	}

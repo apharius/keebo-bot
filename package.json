@@ -7,5 +7,7 @@
 	"dependencies": {
 		"discord.io": "github:woor/discord.io#gateway_v6",
 		"winston": "^2.4.0"
-	}
+	},
+	"repository": "github:apharius/rehnmans-bot",
+	"license": "GPL-3.0"
 }
