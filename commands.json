@@ -1,0 +1,7 @@
+{
+	"commands": [
+			{"name":"!måndag, !tisdag, !onsdag, !torsdag, !fredag", "description":"Postar en meme för den aktuella dagen"},
+			{"name":"!badsalt","description":"Postar en \"Inte badsalt\"-meme"},
+			{"name":"!dong","description":"Postar en slumpmässigt vald \"Expand Dong\"-meme"},
+			{"name":"!pokegif","description":"Postar en slumpmässigt vald Pokémon-GIF"}]
+}

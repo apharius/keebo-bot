@@ -1,12 +1,26 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
+var fs = require('fs');
+var commandlist = require('./commands.json');
 
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
 	colorize: true
 });
 logger.level = 'debug';
+
+var dongtext = fs.readFileSync('pictures/dong/dong_list.txt', 'utf-8');
+var donglist = dongtext.split('\n');
+
+var poketext = fs.readFileSync('pictures/pokegif/pokegif_list.txt','utf-8');
+var pokelist = poketext.split('\n');
+
+var command_string = '';
+
+for(x in commandlist.commands){
+	command_string += commandlist.commands[x].name + ': ' + commandlist.commands[x].description + '\n';
+}
 
 var bot = new Discord.Client({token: auth.token,
 	autorun: true});
@@ -34,7 +48,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'tisdag':
 				bot.uploadFile({
 					to: channelID,
-					file:'tisdag.png'
+					file:'pictures/days/tisdag.png'
 				});
 				logger.info('Tisdag begärd av ' + user);
 				break;
@@ -42,7 +56,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'onsdag':
 				bot.uploadFile({
 					to: channelID,
-					file:'onsdag.jpg'
+					file:'pictures/days/onsdag.jpg'
 				});
 				
 				logger.info('Onsdag begärd av ' + user);
@@ -50,7 +64,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'torsdag':
 				bot.uploadFile({
 					to: channelID,
-					file:'kuken.jpg'
+					file:'pictures/days/torsdag.jpg'
 				});
 				
 				logger.info('Torsdag begärd av ' + user);
@@ -58,7 +72,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'fredag':
 				bot.uploadFile({
 					to: channelID,
-					file:'fredag.jpg'
+					file:'pictures/days/fredag.jpg'
 				});
 				logger.info('Fredag begärd av ' + user);
 
@@ -67,21 +81,41 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'badsalt':
 				bot.uploadFile({
 					to: channelID,
-					file:'badsalt.png'
+					file:'pictures/others/badsalt.png'
 				});
 				logger.info('Badsalt begärd av ' + user);
 
 				break;
 			
-			case 'featurelength':
+			case 'dong':
+				var dongIndex = Math.floor((Math.random() * donglist.length));	
+				var chosenDong = donglist[dongIndex]
+				logger.info(chosenDong);
 				bot.uploadFile({
 					to: channelID,
-					file:'featurelength.jpg'
+					file: 'pictures/dong/'+ chosenDong
 				});
-				logger.info('Feature Length begärd av ' + user);
+				logger.info('Dong begärd av ' + user);
 
 				break;
-			
+			case 'pokegif':
+				var pokeGifIndex = Math.floor((Math.random()*pokelist.length));
+				var chosenPokeGif = pokelist[pokeGifIndex];
+				logger.info(chosenPokeGif);
+
+				bot.uploadFile({
+					to: channelID,
+					file: 'pictures/pokegif/'+ chosenPokeGif
+				});
+				logger.info('Pokémongif begärd av ' + user);
+				break;
+			case 'help':
+				bot.sendMessage({
+					to: channelID,
+					message: command_string
+				});
+				logger.info('Hjälp begärd av ' + user);
+				break;
 
 		}
 	}
