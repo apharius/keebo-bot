@@ -2,6 +2,7 @@ var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
 var fs = require('fs');
+var commandlist = require('./commands.json');
 
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
@@ -14,6 +15,12 @@ var donglist = dongtext.split('\n');
 
 var poketext = fs.readFileSync('pictures/pokegif/pokegif_list.txt','utf-8');
 var pokelist = poketext.split('\n');
+
+var command_string = '';
+
+for(x in commandlist.commands){
+	command_string += commandlist.commands[x].name + ': ' + commandlist.commands[x].description + '\n';
+}
 
 var bot = new Discord.Client({token: auth.token,
 	autorun: true});
@@ -101,6 +108,13 @@ bot.on('message', function(user, userId, channelID, message, evt){
 					file: 'pictures/pokegif/'+ chosenPokeGif
 				});
 				logger.info('Pokémongif begärd av ' + user);
+				break;
+			case 'help':
+				bot.sendMessage({
+					to: channelID,
+					message: command_string
+				});
+				logger.info('Hjälp begärd av ' + user);
 				break;
 
 		}
