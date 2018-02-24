@@ -10,10 +10,10 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 
-var dongtext = fs.readFileSync('pictures/dong/dong_list.txt', 'utf-8');
+var dongtext = fs.readFileSync('donglist.txt', 'utf-8');
 var donglist = dongtext.split('\n');
 
-var poketext = fs.readFileSync('pictures/pokegif/pokegif_list.txt','utf-8');
+var poketext = fs.readFileSync('pokegiflist.txt','utf-8');
 var pokelist = poketext.split('\n');
 
 var command_string = '';
@@ -93,7 +93,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 				logger.info(chosenDong);
 				bot.uploadFile({
 					to: channelID,
-					file: 'pictures/dong/'+ chosenDong
+					file: chosenDong
 				});
 				logger.info('Dong begärd av ' + user);
 
@@ -105,7 +105,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 
 				bot.uploadFile({
 					to: channelID,
-					file: 'pictures/pokegif/'+ chosenPokeGif
+					file: chosenPokeGif
 				});
 				logger.info('Pokémongif begärd av ' + user);
 				break;

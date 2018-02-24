@@ -63,3 +63,6 @@ auth.json
 #no need to version control auto-generated files
 pictures/dong/dong_list.txt
 pictures/pokegif/pokegif_list.txt
+
+#Ignore image lists
+*list.txt
