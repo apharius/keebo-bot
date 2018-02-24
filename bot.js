@@ -16,6 +16,10 @@ var donglist = dongtext.split('\n');
 var poketext = fs.readFileSync('pokegiflist.txt','utf-8');
 var pokelist = poketext.split('\n');
 
+var waifutext = fs.readFileSync('waifulist.txt','utf-8');
+var waifulist = waifutext.split('\n');
+
+
 var command_string = '';
 
 for(x in commandlist.commands){
@@ -122,6 +126,19 @@ bot.on('message', function(user, userId, channelID, message, evt){
 					message: auth.story
 				});
 				logger.info('Varför?');
+				break;
+
+			case 'waifu':
+				var waifuIndex = Math.floor((Math.random() * waifulist.length));	
+				var chosenWaifu = waifulist[waifuIndex]
+				logger.info(chosenWaifu);
+				bot.uploadFile({
+					to: channelID,
+					file: chosenWaifu
+				});
+				logger.info('Waifu begärd av ' + user);
+
+				break;
 
 		}
 	}
