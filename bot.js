@@ -116,6 +116,12 @@ bot.on('message', function(user, userId, channelID, message, evt){
 				});
 				logger.info('Hjälp begärd av ' + user);
 				break;
+			case 'story':
+				bot.sendMessage({
+					to: channelID,
+					message: auth.story
+				});
+				logger.info('Varför?');
 
 		}
 	}
