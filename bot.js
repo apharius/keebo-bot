@@ -28,7 +28,9 @@ for(x in commandlist.commands){
 
 var bot = new Discord.Client({token: auth.token,
 	autorun: true});
+
 bot.on('ready', function(){
+	
 	logger.info('Connected');
 	logger.info('Logged in as: ');
 	logger.info(bot.username + ' - (' + bot.id + ')');
@@ -139,7 +141,11 @@ bot.on('message', function(user, userId, channelID, message, evt){
 				logger.info('Waifu begärd av ' + user);
 
 				break;
-
+			default:
+				bot.sendMessage({
+					to:channelID,
+					message:'That\'s robophobic!'});
+				break;
 		}
 	}
 });
