@@ -10,11 +10,15 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 
-var dongtext = fs.readFileSync('pictures/dong/dong_list.txt', 'utf-8');
+var dongtext = fs.readFileSync('donglist.txt', 'utf-8');
 var donglist = dongtext.split('\n');
 
-var poketext = fs.readFileSync('pictures/pokegif/pokegif_list.txt','utf-8');
+var poketext = fs.readFileSync('pokegiflist.txt','utf-8');
 var pokelist = poketext.split('\n');
+
+var waifutext = fs.readFileSync('waifulist.txt','utf-8');
+var waifulist = waifutext.split('\n');
+
 
 var command_string = '';
 
@@ -24,7 +28,9 @@ for(x in commandlist.commands){
 
 var bot = new Discord.Client({token: auth.token,
 	autorun: true});
+
 bot.on('ready', function(){
+	
 	logger.info('Connected');
 	logger.info('Logged in as: ');
 	logger.info(bot.username + ' - (' + bot.id + ')');
@@ -93,7 +99,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 				logger.info(chosenDong);
 				bot.uploadFile({
 					to: channelID,
-					file: 'pictures/dong/'+ chosenDong
+					file: chosenDong
 				});
 				logger.info('Dong begärd av ' + user);
 
@@ -105,7 +111,7 @@ bot.on('message', function(user, userId, channelID, message, evt){
 
 				bot.uploadFile({
 					to: channelID,
-					file: 'pictures/pokegif/'+ chosenPokeGif
+					file: chosenPokeGif
 				});
 				logger.info('Pokémongif begärd av ' + user);
 				break;
@@ -122,7 +128,24 @@ bot.on('message', function(user, userId, channelID, message, evt){
 					message: auth.story
 				});
 				logger.info('Varför?');
+				break;
 
+			case 'waifu':
+				var waifuIndex = Math.floor((Math.random() * waifulist.length));	
+				var chosenWaifu = waifulist[waifuIndex]
+				logger.info(chosenWaifu);
+				bot.uploadFile({
+					to: channelID,
+					file: chosenWaifu
+				});
+				logger.info('Waifu begärd av ' + user);
+
+				break;
+			default:
+				bot.sendMessage({
+					to:channelID,
+					message:'That\'s robophobic!'});
+				break;
 		}
 	}
 });
