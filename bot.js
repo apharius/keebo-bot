@@ -141,6 +141,13 @@ bot.on('message', function(user, userId, channelID, message, evt){
 				logger.info('Waifu begärd av ' + user);
 
 				break;
+			case 'triplegay':
+				bot.uploadFile({
+					to: channelID,
+					file: 'pictures/others/triplegay.jpg'
+				});
+				logger.info('Personen efter ' + user + ' trippelbög');
+				break;
 			default:
 				bot.sendMessage({
 					to:channelID,
