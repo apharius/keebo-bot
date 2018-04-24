@@ -11,3 +11,4 @@ waifulist.txt: pictures/waifu/
 
 clean:
 	rm *list.txt
+remake: clean all
