@@ -12,3 +12,9 @@ waifulist.txt: pictures/waifu/
 clean:
 	rm *list.txt
 remake: clean all
+
+release: Dockerfile package.json bot.js auth.json
+	sudo docker build -t apharius/keebo-bot:latest .
+developer-build: Dockerfile package.json bot.js auth.json
+	sudo docker build -t apharius/keebo-bot:develop .
+
