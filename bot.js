@@ -156,3 +156,27 @@ bot.on('message', function(user, userId, channelID, message, evt){
 		}
 	}
 });
+
+function goodMorningGoodNight(){
+	var date = new Date();
+	var hour = date.getHours()
+	var minute = date.getMinutes()
+	logger.info('Klockan är ' + hour + ':' + minute);
+	if(hour == 0 && minute == 0){
+		bot.uploadFile({
+			to: 197005965030064130
+			file: 'pictures/others/sleep.jpg'
+		});
+		logger.info('Midnatt.');
+	}
+
+	else if (hour == 8 && minute == 0){
+		bot.sendMessage({
+			to: 197005965030064130
+			message: 'Rise and shine, ursine!\nhttps://www.youtube.com/watch?v=u2XylhnF5bE'
+		});
+		logger.info('Morgon.');
+	}
+}
+
+setInterval(goodMorningGoodNight,60000);
