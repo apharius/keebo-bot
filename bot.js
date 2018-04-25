@@ -20,7 +20,7 @@ var waifutext = fs.readFileSync('waifulist.txt','utf-8');
 var waifulist = waifutext.split('\n');
 
 
-var command_string = '';
+var command_string = 'Lista över kommandon:\n';
 
 for(x in commandlist.commands){
 	command_string += commandlist.commands[x].name + ': ' + commandlist.commands[x].description + '\n';
