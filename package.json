@@ -1,6 +1,6 @@
 {
 	"name": "rehnmans-bot",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"description": "Rehnmans bot för alla roligheter och fuktiga mejmejs",
 	"main": "bot.js",
 	"author": "Alexander Rehnman",
