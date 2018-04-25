@@ -173,7 +173,7 @@ function goodMorningGoodNight(){
 	else if (hour == 8 && minute == 0){
 		bot.sendMessage({
 			to: 197005965030064130,
-			message: 'Rise and shine, ursine!\nhttps://www.youtube.com/watch?v=u2XylhnF5bE'
+			message: 'Rise and shine, ursine!\nhttps://youtu.be/i6SCkwNOAug'
 		});
 		logger.info('Morgon.');
 	}
