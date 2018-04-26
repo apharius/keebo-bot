@@ -162,7 +162,7 @@ function goodMorningGoodNight(){
 	var hour = date.getHours()
 	var minute = date.getMinutes()
 	logger.info('Klockan är ' + hour + ':' + minute);
-	if(hour == 0 && minute == 0){
+	if(hour == 22 && minute == 0){
 		bot.uploadFile({
 			to: 197005965030064130,
 			file: 'pictures/others/sleep.jpg'
@@ -170,7 +170,7 @@ function goodMorningGoodNight(){
 		logger.info('Midnatt.');
 	}
 
-	else if (hour == 8 && minute == 0){
+	else if (hour == 6 && minute == 0){
 		bot.sendMessage({
 			to: 197005965030064130,
 			message: 'Rise and shine, ursine!\nhttps://youtu.be/i6SCkwNOAug'
