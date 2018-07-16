@@ -3,6 +3,7 @@ var logger = require('winston');
 var auth = require('./auth.json');
 var fs = require('fs');
 var commandlist = require('./commands.json');
+var errors = require('./errors.json');
 
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
@@ -149,9 +150,11 @@ bot.on('message', function(user, userId, channelID, message, evt){
 				logger.info('Personen efter ' + user + ' trippelbög');
 				break;
 			default:
+				var errorIndex = Math.floor((Math.random() * errors.errors.length))
+				var chosenError = errors.errors[errorIndex]
 				bot.sendMessage({
 					to:channelID,
-					message:'That\'s robophobic!'});
+					message:chosenError});
 				break;
 		}
 	}
@@ -161,10 +164,11 @@ function goodMorningGoodNight(){
 	var date = new Date();
 	var hour = date.getHours()
 	var minute = date.getMinutes()
+	var day = date.getDay()
 	logger.info('Klockan är ' + hour + ':' + minute);
 	if(hour == 22 && minute == 0){
 		bot.uploadFile({
-			to: 197005965030064130,
+			to:'414415445643362305',	
 			file: 'pictures/others/sleep.jpg'
 		});
 		logger.info('Midnatt.');
@@ -172,10 +176,50 @@ function goodMorningGoodNight(){
 
 	else if (hour == 6 && minute == 0){
 		bot.sendMessage({
-			to: 197005965030064130,
+			to:'414415445643362305',
 			message: 'Rise and shine, ursine!\nhttps://youtu.be/i6SCkwNOAug'
 		});
 		logger.info('Morgon.');
+
+		if(day == 1){
+		
+			bot.sendMessage({
+				to:'414415445643362305',
+				message:'https://www.youtube.com/watch?v=s22bwvHQcnc'
+			});
+		}
+
+		else if (day == 2){
+			bot.uploadFile({
+				to:'414415445643362305',
+				file:'pictures/days/tisdag.png'
+			});
+
+		}
+		
+		else if (day == 3){
+			bot.uploadFile({
+				to:'414415445643362305',
+				file:'pictures/days/onsdag.jpg'
+			});
+
+		}
+		
+		else if (day == 4){
+			bot.uploadFile({
+				to:'414415445643362305',
+				file:'pictures/days/torsdag.jpg'
+			});
+
+		}
+
+		else if (day == 5){
+			bot.uploadFile({
+				to:'414415445643362305',
+				file:'pictures/days/fredag.jpg'
+			});
+
+		}
 	}
 }
 
