@@ -21,7 +21,7 @@ developer-build: Dockerfile package.json bot.js auth.json pictures/
 push-developer: developer-build
 	sudo docker push apharius/keebo-bot:develop
 push-release: release
-	sudo docker push apharius/keebo-bot:release
+	sudo docker push apharius/keebo-bot:latest
 push-all: developer-build release
 	sudo docker push apharius/keebo-bot
 
