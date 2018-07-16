@@ -1,4 +1,4 @@
-all: donglist.txt pokegiflist.txt waifulist.txt
+all: donglist.txt pokegiflist.txt waifulist.txt nopelist.txt
 
 donglist.txt: pictures/dong/
 	find pictures/dong -name '*.*' > donglist.txt
@@ -8,7 +8,8 @@ pokegiflist.txt: pictures/pokegif/
 
 waifulist.txt: pictures/waifu/
 	find pictures/waifu -name '*.*' > waifulist.txt
-
+nopelist.txt: pictures/nope/
+	find pictures/nope -name '*.*' > nopelist.txt
 clean:
 	rm *list.txt
 remake: clean all
