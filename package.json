@@ -1,7 +1,7 @@
 {
 	"name": "keebo-bot",
 	"version": "1.3.0",
-	"description": "Rehnmans bot för alla roligheter och fuktiga mejmejs",
+	"description": "The Ultimate Discord Bot (not)",
 	"main": "bot.js",
 	"author": "Alexander Rehnman",
 	"dependencies": {
