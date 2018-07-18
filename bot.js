@@ -20,6 +20,8 @@ var pokelist = poketext.split('\n');
 var waifutext = fs.readFileSync('waifulist.txt','utf-8');
 var waifulist = waifutext.split('\n');
 
+var nopetext = fs.readFileSync('nopelist.txt','utf-8');
+var nopelist = nopetext.split('\n');
 
 var command_string = 'Lista över kommandon:\n';
 
@@ -149,6 +151,18 @@ bot.on('message', function(user, userId, channelID, message, evt){
 				});
 				logger.info('Personen efter ' + user + ' trippelbög');
 				break;
+			case 'nope':
+				var nopeIndex = Math.floor((Math.random() * nopelist.length));	
+				var chosenNope = nopelist[nopeIndex]
+				logger.info(chosenNope);
+				bot.uploadFile({
+					to: channelID,
+					file: chosenNope
+				});
+				logger.info('Nope begärd av ' + user);
+
+				break;
+
 			default:
 				var errorIndex = Math.floor((Math.random() * errors.errors.length))
 				var chosenError = errors.errors[errorIndex]

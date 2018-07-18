@@ -1,14 +1,14 @@
 {
-	"name": "rehnmans-bot",
-	"version": "1.2.5",
-	"description": "Rehnmans bot för alla roligheter och fuktiga mejmejs",
+	"name": "keebo-bot",
+	"version": "1.3.0",
+	"description": "The Ultimate Discord Bot (not)",
 	"main": "bot.js",
 	"author": "Alexander Rehnman",
 	"dependencies": {
 		"discord.io": "github:woor/discord.io#gateway_v6",
 		"winston": "^2.4.0"
 	},
-	"repository": "github:apharius/rehnmans-bot",
+	"repository": "github:apharius/keebo-bot",
 	"license": "GPL-3.0",
 	"scripts": {
 		"start": "node bot.js"
