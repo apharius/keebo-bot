@@ -5,5 +5,6 @@
 			{"name":"!dong","description":"Postar en slumpmässigt vald \"Expand Dong\"-meme"},
 			{"name":"!pokegif","description":"Postar en slumpmässigt vald Pokémon-GIF"},
 			{"name":"!waifu","description":"Postar waifus. Om din waifu inte är här betyder det att hon är skit"},
-			{"name":"!triplegay","description":"När personen under dig är trippelt homosexuell."}]
+			{"name":"!triplegay","description":"När personen under dig är trippelt homosexuell."},
+			{"name":"!nope","description":"När något icke önskvärt inträffar"}]
 }
