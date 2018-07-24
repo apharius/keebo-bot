@@ -4,6 +4,7 @@ var auth = require('./auth.json');
 var fs = require('fs');
 var commandlist = require('./commands.json');
 var errors = require('./errors.json');
+var releaseinfo = require('./releaseinfo.json')
 
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
@@ -37,6 +38,11 @@ bot.on('ready', function(){
 	logger.info('Connected');
 	logger.info('Logged in as: ');
 	logger.info(bot.username + ' - (' + bot.id + ')');
+	bot.sendMessage({
+		to:'414415445643362305',
+		message: 'Keebo ' + releaseinfo.version + ' online. In this version:\n' + releaseinfo.info
+	});
+
 });
 
 bot.on('message', function(user, userId, channelID, message, evt){
