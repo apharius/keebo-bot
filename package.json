@@ -1,6 +1,6 @@
 {
 	"name": "keebo-bot",
-	"version": "1.3.1",
+	"version": "1.3.2",
 	"description": "The Ultimate Discord Bot (not)",
 	"main": "bot.js",
 	"author": "Alexander Rehnman",
