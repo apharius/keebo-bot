@@ -5,7 +5,7 @@ var fs = require('fs');
 var commandlist = require('./commands.json');
 var errors = require('./errors.json');
 var releaseinfo = require('./releaseinfo.json')
-
+var charadatabase = require('./charadatabase.json')
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
 	colorize: true
@@ -167,6 +167,18 @@ bot.on('message', function(user, userId, channelID, message, evt){
 				});
 				logger.info('Nope begärd av ' + user);
 
+				break;
+			case 'chara':
+				var charaName = args[1].toLowerCase();
+				var message = 'No such Chara in database!';
+				for(chara in charadatabase.charas){
+					if(charaName == charadatabase.charas[chara].shortname){
+						message = 'Name: ' + charadatabase.charas[chara].fullname + '\nBackstory: ' + charadatabase.charas[chara].biography;
+					}
+				}
+
+				bot.sendMessage({to:channelID,
+					message:message});
 				break;
 
 			default:

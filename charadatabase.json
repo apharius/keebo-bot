@@ -1,7 +1,7 @@
 {
-	"charas":[{"short-name":"hidde","full-name":"Hidde Hinata","biography":"Biography goes here"},
-	{"short-name":"clyde","full-name":"Clyde Glider","biography":"Biography goes here"},
-	{"short-name":"zonia","full-name":"Zonia Nevermind","biography":"Biography goes here"},
-	{"short-name":"lute","full-name":"Lute ????","biography":"Biography goes here"}
+	"charas":[{"shortname":"hidde","fullname":"Hidde Hinata","biography":"Biography goes here"},
+	{"shortname":"clyde","fullname":"Clyde Glider","biography":"Biography goes here"},
+	{"shortname":"zonia","fullname":"Zonia Nevermind","biography":"Biography goes here"},
+	{"shortname":"lute","fullname":"Lute ????","biography":"Biography goes here"}
 	]
 }
