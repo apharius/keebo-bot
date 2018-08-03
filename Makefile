@@ -25,4 +25,4 @@ push-release: release
 	sudo docker push apharius/keebo-bot:latest
 push-all: developer-build release
 	sudo docker push apharius/keebo-bot
-
+deploy: remake push-release
