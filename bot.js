@@ -169,14 +169,19 @@ bot.on('message', function(user, userId, channelID, message, evt){
 			case 'chara':
 				var charaName = args[1].toLowerCase();
 				var message = 'No such Chara in database!';
+				var imagepath = '';
 				for(chara in charadatabase.charas){
 					if(charaName == charadatabase.charas[chara].shortname){
-						message = 'Name: ' + charadatabase.charas[chara].fullname + '\nBackstory: ' + charadatabase.charas[chara].biography;
+						message = 'Name: ' + charadatabase.charas[chara].fullname + 
+							'\nBackstory: ' + charadatabase.charas[chara].biography +
+							'\nCreator: ' + charadatabase.charas[chara].creator;
+						imagepath = charadatabase.charas[chara].imagepath; 
 					}
 				}
 
-				bot.sendMessage({to:channelID,
-					message:message});
+				bot.uploadFile({to: channelID,
+					file: imagepath,
+					message: message});
 				break;
 
 			default:
