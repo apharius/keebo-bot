@@ -5,7 +5,7 @@ var fs = require('fs');
 var commandlist = require('./commands.json');
 var errors = require('./errors.json');
 var releaseinfo = require('./releaseinfo.json')
-
+var charadatabase = require('./charadatabase.json')
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
 	colorize: true
@@ -49,8 +49,6 @@ bot.on('message', function(user, userId, channelID, message, evt){
 	if(message.substring(0, 1) == '!'){
 		var args = message.substring(1).split(' ');
 		var cmd = args[0];
-
-		args = args.splice(1);
 
 		switch(cmd){
 			case 'måndag':
@@ -167,6 +165,23 @@ bot.on('message', function(user, userId, channelID, message, evt){
 				});
 				logger.info('Nope begärd av ' + user);
 
+				break;
+			case 'chara':
+				var charaName = args[1].toLowerCase();
+				var message = 'No such Chara in database!';
+				var imagepath = '';
+				for(chara in charadatabase.charas){
+					if(charaName == charadatabase.charas[chara].shortname){
+						message = 'Name: ' + charadatabase.charas[chara].fullname + 
+							'\nBackstory: ' + charadatabase.charas[chara].biography +
+							'\nCreator: ' + charadatabase.charas[chara].creator;
+						imagepath = charadatabase.charas[chara].imagepath; 
+					}
+				}
+
+				bot.uploadFile({to: channelID,
+					file: imagepath,
+					message: message});
 				break;
 
 			default:
