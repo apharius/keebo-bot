@@ -1,7 +1,12 @@
 {
-	"charas":[{"shortname":"hidde","fullname":"Hidde Hinata","biography":"Biography goes here"},
-	{"shortname":"clyde","fullname":"Clyde Glider","biography":"Biography goes here"},
-	{"shortname":"zonia","fullname":"Zonia Nevermind","biography":"Biography goes here"},
-	{"shortname":"lute","fullname":"Lute ????","biography":"Biography goes here"}
+	"charas":
+	[
+		{
+			"shortname":"hidde",
+			"fullname":"Hidde Hinata",
+			"biography":"Biography goes here",
+			"creator":"Zihon",
+			"imagepath":"pictures/chara/hidde.jpg"
+		}
 	]
 }
