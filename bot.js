@@ -255,6 +255,14 @@ function goodMorningGoodNight(){
 			});
 
 		}
+
+		else if(day == 6 || day == 0){
+			bot.uploadFile({
+				to:'414415445643362305',
+				file:'pictures/tenkotiger.jpg'
+			});
+		
+		}
 	}
 }
 
