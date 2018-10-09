@@ -66,3 +66,6 @@ pictures/pokegif/pokegif_list.txt
 
 #Ignore image lists
 *list.txt
+
+#Don't push pictures to GitHub. Big no. If you fork this, set up a local pictures folder.
+pictures/ 
