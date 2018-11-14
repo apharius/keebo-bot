@@ -7,7 +7,7 @@ var errors = require('./errors.json');
 var releaseinfo = require('./releaseinfo.json')
 var charadatabase = require('./charadatabase.json')
 
-var botchannel = '510571201962442756',
+var botchannel = '510571201962442756';
 
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
