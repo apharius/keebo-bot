@@ -6,6 +6,9 @@ var commandlist = require('./commands.json');
 var errors = require('./errors.json');
 var releaseinfo = require('./releaseinfo.json')
 var charadatabase = require('./charadatabase.json')
+
+var botchannel = '510571201962442756',
+
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
 	colorize: true
@@ -39,7 +42,7 @@ bot.on('ready', function(){
 	logger.info('Logged in as: ');
 	logger.info(bot.username + ' - (' + bot.id + ')');
 	bot.sendMessage({
-		to:'414415445643362305',
+		to:botchannel,
 		message: 'Keebo ' + releaseinfo.version + ' online. In this version:\n' + releaseinfo.info
 	});
 
@@ -201,17 +204,17 @@ function goodMorningGoodNight(){
 	var minute = date.getMinutes()
 	var day = date.getDay()
 	logger.info('Klockan är ' + hour + ':' + minute);
-	if(hour == 22 && minute == 0){
+	if(hour == 23 && minute == 0){
 		bot.uploadFile({
-			to:'414415445643362305',	
+			to:botchannel,	
 			file: 'pictures/others/sleep.jpg'
 		});
 		logger.info('Midnatt.');
 	}
 
-	else if (hour == 6 && minute == 0){
+	else if (hour == 7 && minute == 0){
 		bot.sendMessage({
-			to:'414415445643362305',
+			to:botchannel,
 			message: 'Rise and shine, ursine!\nhttps://youtu.be/i6SCkwNOAug'
 		});
 		logger.info('Morgon.');
@@ -219,14 +222,14 @@ function goodMorningGoodNight(){
 		if(day == 1){
 		
 			bot.sendMessage({
-				to:'414415445643362305',
+				to:botchannel,
 				message:'https://www.youtube.com/watch?v=s22bwvHQcnc'
 			});
 		}
 
 		else if (day == 2){
 			bot.uploadFile({
-				to:'414415445643362305',
+				to:botchannel,
 				file:'pictures/days/tisdag.png'
 			});
 
@@ -234,7 +237,7 @@ function goodMorningGoodNight(){
 		
 		else if (day == 3){
 			bot.uploadFile({
-				to:'414415445643362305',
+				to:botchannel,
 				file:'pictures/days/onsdag.jpg'
 			});
 
@@ -242,7 +245,7 @@ function goodMorningGoodNight(){
 		
 		else if (day == 4){
 			bot.uploadFile({
-				to:'414415445643362305',
+				to:botchannel,
 				file:'pictures/days/torsdag.jpg'
 			});
 
@@ -250,7 +253,7 @@ function goodMorningGoodNight(){
 
 		else if (day == 5){
 			bot.uploadFile({
-				to:'414415445643362305',
+				to:botchannel,
 				file:'pictures/days/fredag.jpg'
 			});
 
