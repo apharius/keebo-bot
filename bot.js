@@ -269,6 +269,14 @@ function goodMorningGoodNight(){
 
 		}
 
+		else{
+			
+			bot.sendMessage({
+				to:botchannel,
+				message:'Ingen meme för idag :('
+			});
+		}
+
 	}
 }
 
