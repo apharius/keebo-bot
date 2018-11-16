@@ -33,7 +33,17 @@ for(x in commandlist.commands){
 	command_string += commandlist.commands[x].name + ': ' + commandlist.commands[x].description + '\n';
 }
 
-var bot = new Discord.Client({token: auth.token,
+var chosentoken = '';
+
+if(auth.devmode == true){
+	chosentoken = auth.devtoken;
+}
+
+else{
+	chosentoken = auth.token;
+}
+
+var bot = new Discord.Client({token: chosentoken,
 	autorun: true});
 
 bot.on('ready', function(){
