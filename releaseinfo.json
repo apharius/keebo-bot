@@ -1,4 +1,4 @@
 {
 	"version":"1.5.0",
-	"info":"- Implemented support for Saturdays and Sundays"	
+	"info":"- Implemented support for Saturdays and Sundays\n- Modularized code for easier modification and maintenance. Continuous work in progress."	
 }
