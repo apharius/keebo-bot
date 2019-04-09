@@ -141,12 +141,12 @@ function goodMorningGoodNight(){
 	var minute = date.getMinutes()
 	var day = date.getDay()
 	logger.info('Klockan är ' + hour + ':' + minute);
-	if(hour == 23 && minute == 0){
+	if(hour == 0 && minute == 0){
 		postImage(botchannel,'pictures/others/sleep.jpg')
 		logger.info('Midnatt.');
 	}
 
-	else if (hour == 7 && minute == 0){
+	else if (hour == 8 && minute == 0){
 		bot.sendMessage({
 			to:botchannel,
 			message: 'Rise and shine, ursine!\nhttps://youtu.be/i6SCkwNOAug'
